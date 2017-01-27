@@ -8,10 +8,26 @@ package hisakatha {
     */
   object Training {
     def main(args: Array[String]): Unit = {
-      println("Hello, world!?")
-      println(1 === 2 - 1)
+      // A case class for option parser.
+      case class Config(multiply: Boolean = false, seq: Seq[Int] = Seq())
+      val parser = new scopt.OptionParser[Config]("calc") {
+        head("calc", "1.0")
+        opt[Unit]('m', "multiply").optional().action((_, c) => c.copy(multiply = true)).text("Return a product instead of a sum.")
+        arg[Int]("<integer>...").unbounded().required().action((x, c) => c.copy(seq = c.seq :+ x)).text("Integers to be calculated.")
+        help("help").text("Print this help text")
+        version("version")
+        note("Return the number calculated from integers of the command line argument. In default, integers are added.")
+      }
+
+      assert(1 === 2 - 1)
+
       val funcs = new MyFuncs()
-      println(funcs.adder2(2, 3))
+      val parsed: Config = parser.parse(args, Config()) match {
+        case Some(config) => config
+        case None => sys.error("ERROR: Bad arguments.")
+      }
+
+      println(funcs.adder(parsed.seq))
 
     }
   }
