@@ -27,7 +27,12 @@ package hisakatha {
         case None => sys.error("ERROR: Bad arguments.")
       }
 
-      println(funcs.adder(parsed.seq))
+      val answer = if(parsed.multiply){
+        funcs.multiplier(parsed.seq)
+      }else{
+        funcs.adder(parsed.seq)
+      }
+      println(answer)
 
     }
   }
