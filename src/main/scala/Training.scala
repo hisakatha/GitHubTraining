@@ -36,7 +36,7 @@ package hisakatha {
       * @return Sum of integers in list.
       */
     def adder(list: Seq[Int]): Int = {
-      list.foldLeft(0)((e1, e2) => adder2(e1, e2)) * 0
+      list.foldLeft(0)((e1, e2) => adder2(e1, e2))
     }
   }
 
