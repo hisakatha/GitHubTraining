@@ -54,6 +54,25 @@ package hisakatha {
     def adder(list: Seq[Int]): Int = {
       list.foldLeft(0)((e1, e2) => adder2(e1, e2))
     }
+
+    /**
+      * Return a product of two integers.
+      * @param a Integer to be multiplied.
+      * @param b Integer to be multiplied.
+      * @return Product of a and b.
+      */
+    def multiplier2(a: Int, b:Int): Int ={
+      a * b
+    }
+
+    /**
+      * Return a product of integers in list.
+      * @param list Integers to be multiplied.
+      * @return Product of integers in list.
+      */
+    def multiplier(list: Seq[Int]): Int ={
+      list.foldLeft(1)((e1, e2) => multiplier2(e1, e2))
+    }
   }
 
 }

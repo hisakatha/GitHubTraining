@@ -16,4 +16,14 @@ class MyFuncsTest extends FlatSpec with Matchers {
     funcs.adder(Seq(0, 1, 2, 3)) shouldBe 6
   }
 
+  "multiplier2" should "return the product of two integers" in {
+    funcs.multiplier2(0, 5) shouldBe 0
+    funcs.multiplier2(6, 9) shouldBe 54
+    funcs.multiplier2(7, -8) shouldBe -56
+  }
+
+  "multiplier" should "return the product of integer list" in {
+    funcs.multiplier(Seq(4, -2, 3, 1, 5)) shouldBe -120
+  }
+
 }
