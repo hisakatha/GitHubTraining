@@ -12,8 +12,12 @@ class MyFuncsTest extends FlatSpec with Matchers {
     funcs.adder2(-100, 50) shouldBe -50
   }
 
-  "adder" should "return the sum of integer list" in {
+  "adder" should "return the sum of integer list (4 elements)" in {
     funcs.adder(Seq(0, 1, 2, 3)) shouldBe 6
+  }
+
+  "adder" should "return the sum of integer list (a single element)" in {
+    funcs.adder(Seq(2)) shouldBe 2
   }
 
   "multiplier2" should "return the product of two integers" in {
